@@ -1,0 +1,2 @@
+class GhostbustersController < ApplicationController
+end
