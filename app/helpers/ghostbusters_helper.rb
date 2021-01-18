@@ -1,0 +1,2 @@
+module GhostbustersHelper
+end
