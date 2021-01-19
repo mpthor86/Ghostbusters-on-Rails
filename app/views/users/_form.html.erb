@@ -1,0 +1,16 @@
+<ul>
+<% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+    <%end%>
+<%end%>
+<%= form_for @user do |f|%>
+    <%= f.label :username %>
+    <li><%= f.text_field :username %></li>
+    <%= f.label :address %>
+    <li><%= f.text_field :address %></li>
+    <%= f.label :password %>
+    <li><%= f.password_field :password %></li><br>
+    <%= f.submit %>
+<%end%>
+</ul>
