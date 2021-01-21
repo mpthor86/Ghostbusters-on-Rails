@@ -36,9 +36,7 @@ class AppointmentsController < ApplicationController
     def get_buster
         buster = Ghostbuster.all.find {|buster| buster.appointments.last.time.hour > parse_time.hour + 3}
         if buster.nil?
-            @appointment = Appointment.new
             flash[:message] = "There are no Ghostbusters available for that time.  Please reschedule for after #{Appointment.all.last.time.strftime('%b %e, %l:%M %p')}"
-            render 'new'
         else
         buster
         end
