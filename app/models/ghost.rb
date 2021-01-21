@@ -1,3 +1,5 @@
 class Ghost < ApplicationRecord
-    belongs_to :ghostbuster
+    belongs_to :user
+
+    validates :name, presence: true, length: {maximum: 15}
 end
