@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 2021_01_18_182443) do
   create_table "appointments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "ghostbuster_id"
-    t.datetime "appointment_time"
-    t.string "appointment_address"
+    t.datetime "time"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2021_01_18_182443) do
 
   create_table "ghosts", force: :cascade do |t|
     t.string "name"
-    t.integer "ghostbuster_id"
-    t.integer "rating"
+    t.integer "user_id"
+    t.integer "rating", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
