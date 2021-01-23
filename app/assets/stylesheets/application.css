@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.class { 
+ background-image: url('/app/assets/images/slime_background.jpg');
+ background-size:cover; 
+ background-repeat:no-repeat;
+ background-attachment:fixed;
+ height:100%;
+}
