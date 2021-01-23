@@ -1,0 +1,4 @@
+<br>
+<% @ghost.each_with_index do |ghost, index| %>
+    <%= index + 1 %>) <%= link_to ghost.name, user_ghost_path(current_user, ghost) %><br>
+<%end%>

@@ -1,0 +1,9 @@
+<%= form_for @ghost do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :dificulty %>
+    <%= f.select :rating, 1..10 %><br>
+    <%= f.submit %>
+<%end%>
+<br>
+<%= button_to 'Delete Ghost', @ghost, method: 'delete' %>

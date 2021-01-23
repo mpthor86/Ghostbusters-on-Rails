@@ -1,0 +1,6 @@
+<br>
+Name - <%= @ghost.name %><br>
+Rating - <%= @ghost.rating %><br>
+Reported on <%= @ghost.created_at.strftime('%A, %b %d %Y at %l:%M %p') %><br>
+Busted by: <%= @ghost.find_buster %><br>
+<%= link_to 'Edit Ghost', edit_ghost_path(@ghost) %>
