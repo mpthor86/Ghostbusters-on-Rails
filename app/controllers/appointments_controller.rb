@@ -7,11 +7,11 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        buster = get_buster
-        @appt = Appointment.new(time: parse_time, address: appt_params['address'], user_id: current_user.id, ghostbuster_id: buster.id)
+        buster = get_buster     
+            @appt = Appointment.new(time: parse_time, address: appt_params['address'], user_id: current_user.id, ghostbuster_id: buster.id) if !buster.nil?
         if @appt.save
             Ghost.create(ghost_params)
-        redirect_to appointment_path(@appt)
+            redirect_to appointment_path(@appt)
         else
             render "appointments#new"
         end
@@ -33,12 +33,5 @@ class AppointmentsController < ApplicationController
         {user_id: current_user.id, name: new_ghost['name'], rating: new_ghost['rating']}
     end
 
-    def get_buster
-        buster = Ghostbuster.all.find {|buster| buster.appointments.last.time.hour > parse_time.hour + 3}
-        if buster.nil?
-            flash[:message] = "There are no Ghostbusters available for that time.  Please reschedule for after #{Appointment.all.last.time.strftime('%b %e, %l:%M %p')}"
-        else
-        buster
-        end
-    end
+    
 end
