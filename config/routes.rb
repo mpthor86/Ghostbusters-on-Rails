@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
-  resources :ghosts, only: [:index]
+  resources :ghosts, only: [:index, :edit, :update, :destroy]
   resources :appointments
   resources :ghostbusters
   resources :users do
-    resources :ghosts
+    resources :ghosts, only: [:index, :show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,4 +1,4 @@
 
 <h3>Hello, <%= @user.username.capitalize %></h3>
-<%= link_to 'Your Ghosts', ghosts_path %>
+<%= link_to 'Your Reported Ghosts', user_ghosts_path(current_user) %>
 

@@ -1,12 +1,17 @@
-<%= flash[:message] %>
+<% if @appointment.errors.any? %>
+    <% @appointment.errors.each do |error| %>
+        <%= error %>
+    <%end%>
+<%end%>
+<%byebug%>
 <h2>Schedule to have your ghost busted</h2>
 <%= form_for @appointment do |f| %>
     <p><%= f.label 'What time is best?' %><br>
-    Day: <%= f.date_select('time', default: Time.now) %><br><br>
-    Time: <%= f.time_select :time, default: Time.now %>
+    Day: <%= f.date_select('time', default: Time.now, discard_year: true) %><br><br>
+    Time: <%= f.time_select('time', defualt: Time.now.localtime) %>
         
         <p><%= f.label :address %>:
-        <%= f.text_field :address, :value => current_user.address %></p>
+        <%= f.text_field :address, value: current_user.address %></p>
                 <%= f.fields_for :ghost do |gf| %>
                     <%= gf.label :name %>
                     <%= gf.text_field :name %><br>
