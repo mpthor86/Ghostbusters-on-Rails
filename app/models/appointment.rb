@@ -2,6 +2,8 @@ class Appointment < ApplicationRecord
     belongs_to :user
     belongs_to :ghostbuster
 
-    private
+    def time_avail
+        self.time + 3.hours
+    end
     
 end
