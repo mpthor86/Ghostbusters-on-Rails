@@ -1,2 +1,4 @@
-<h2>Welcome</h2>
-<%= link_to "Sign In", signin_path %> or <%= link_to 'Sign Up', signup_path %>
+<h2>Welcome To Ghostbusters on Rails</h2>
+Either <%= link_to "Sign In", signin_path %>  <%= link_to 'Sign Up', signup_path %> or, <br>
+<br>
+<%= button_to "Log in with Google", '/auth/google_oauth2'  %>
