@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :ghostbusters
   resources :users do
     resources :ghosts, only: [:index, :show]
+    resources :appointments, only: [:new]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
