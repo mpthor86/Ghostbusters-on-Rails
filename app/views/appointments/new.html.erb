@@ -3,17 +3,15 @@
         <%= error %>
     <%end%>
 <%end%>
-<%byebug%>
 <h2>Schedule to have your ghost busted</h2>
 <%= form_for @appointment do |f| %>
-    <p><%= f.label 'What time is best?' %><br>
+    <p><%= f.label 'Ghost Busting Form' %><br>
     Day: <%= f.date_select('time', default: Time.now, discard_year: true) %><br><br>
-    Time: <%= f.time_select('time', defualt: Time.now.localtime) %>
-        
+    Ghostbuster: <%= f.select :ghostbuster, @busters %>
         <p><%= f.label :address %>:
         <%= f.text_field :address, value: current_user.address %></p>
                 <%= f.fields_for :ghost do |gf| %>
-                    <%= gf.label :name %>
+                    <%= gf.label :name %> of ghost: 
                     <%= gf.text_field :name %><br>
                     <%= gf.label :dificulty %>
                     <%= gf.select :rating, 1..10 %><br>
