@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'static#home'
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
