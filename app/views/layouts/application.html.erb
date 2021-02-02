@@ -18,11 +18,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <link rel='stylesheets' type="application/css" href="application.css">
-  <body>
-    <div style='text-align: center;'>
-    <%= yield %>
-    </div>
-  </body>
+  <div class="container">
+      <link rel='stylesheets' type="application/scss" href="application.scss">
+          <body>
+            <div style='text-align: center;'>
+          <%= yield %>
+            </div>
+          </body>
+  </div>
 </html>
