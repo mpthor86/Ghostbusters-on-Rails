@@ -1,5 +1,7 @@
 
 <h3>Hello, <%= @user.username.capitalize %></h3>
-<%= link_to 'Your Reported Ghosts', user_ghosts_path(current_user) %><br>
-<%= link_to 'Update Profile', edit_user_path(@user) %>
+    <% @user.ghostbusters.each do |buster| %>
+        <p><%= link_to "#{buster.name}", ghostbuster_path(buster) %> Busted a ghost for you.</p>
+        <%end%>
+<%= link_to 'Reported Ghosts', user_ghosts_path(current_user) %> / <%= link_to 'Update Profile', edit_user_path(@user) %>
 
