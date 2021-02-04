@@ -6,14 +6,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel='icon' href='https://images-na.ssl-images-amazon.com/images/I/418o%2BelBMcL._AC_.jpg' >
-    <% if logged_in? %>
-      <header class='navbar navbar-inverse'>
-        <div class='navbar-class'>
-          <div class='container'>
-            <%= link_to 'Log Out', logout_path, method: 'delete' %>
-            <%= link_to 'Home', user_path(current_user) %>
-            <%= link_to 'Report Ghost', new_user_appointment_path(current_user) %>
-    <%end%>
+        <% if logged_in? %>
+            <header class='navbar navbar-inverse'>
+              <div class='navbar-class'>
+                <div class='nav-container'>
+                  <%= link_to 'Log Out', logout_path, method: 'delete' %><br>
+                  <%= link_to 'Home', user_path(current_user) %><br>
+                  <%= link_to 'Report Ghost', new_appointment_path(current_user) %><br>
+                  <%= link_to 'The Busters', ghostbusters_path %>
+                  </div>
+        <%end%>
     
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
