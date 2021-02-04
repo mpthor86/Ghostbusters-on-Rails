@@ -10,10 +10,13 @@ Rails.application.routes.draw do
 
   resources :ghosts, only: [:index, :edit, :update, :destroy]
   resources :appointments
-  resources :ghostbusters
+  resources :ghostbusters do
+    resources :appointments, only: [:index, :new]
+  end
   resources :users do
     resources :ghosts, only: [:index, :show]
-    resources :appointments, only: [:new]
   end
+
+  get '*path', to: redirect('/')
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
