@@ -7,7 +7,11 @@
 <%= form_for @appointment do |f| %>
     <p><%= f.label 'Ghost Busting Form' %><br>
     Day: <%= f.date_select('time', default: Time.now, discard_year: true) %><br><br>
+    <% if @busters %>
     Ghostbuster: <%= f.select :ghostbuster, @busters %>
+    <% else %>
+    Ghostbuster: <%= @buster.name %>
+    <%end%>
         <p><%= f.label :address %>:
         <%= f.text_field :address, value: current_user.address %></p>
                 <%= f.fields_for :ghost do |gf| %>
