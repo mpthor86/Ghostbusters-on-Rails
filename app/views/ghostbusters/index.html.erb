@@ -1,0 +1,3 @@
+<% @busters.each do |buster| %>
+    <p><%= link_to buster.name, ghostbuster_path(buster) %> / <%= link_to 'Bust my ghost', new_ghostbuster_appointment_path(buster) %></p>
+    <%end%>

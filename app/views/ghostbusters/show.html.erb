@@ -1,0 +1,7 @@
+
+<h3><%= @buster.name %></h3>
+<p><%= link_to 'Bust My Ghost', new_ghostbuster_appointment_path(@buster) %></p>
+<strong>Has helped bust ghosts for:</strong>
+<% @buster.users.each do |user| %>
+    <p><%= user.username %></p>
+    <%end%>
